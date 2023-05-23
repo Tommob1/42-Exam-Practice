@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: btomlins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 11:07:14 by btomlins          #+#    #+#             */
-/*   Updated: 2023/05/02 12:01:22 by btomlins         ###   ########.fr       */
+/*   Created: 2023/05/23 14:45:14 by btomlins          #+#    #+#             */
+/*   Updated: 2023/05/23 14:57:30 by btomlins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Assignment name  : first_word
 Expected files   : first_word.c
 Allowed functions: write
 --------------------------------------------------------------------------------
@@ -36,24 +35,24 @@ $
 $> ./first_word "a" "b" | cat -e
 $
 $> ./first_word "  lorem,ipsum  " | cat -e
-lorem,ipsum
 */
 
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
+
 	i = 0;
 
 	if (argc == 2)
 	{
-		while (argv[1][i] == 32 || argv[1][i] == 9)
-			i++;
-		while ((argv[1][i] != 32 && argv[1][i] != 9) && argv[1][i])
+		while (argv[1][i] == ' ' || argv[1][i] == '\t')
+		   i++;
+		while ((argv[1][i] != ' ' && argv[1][i] != '\t') && argv[1][i])
 		{
 			write(1, &argv[1][i], 1);
-			i++;
+			i++;	
 		}
 	}
 	write(1, "\n", 1);
