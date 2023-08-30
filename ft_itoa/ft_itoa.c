@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: btomlins <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 13:34:57 by btomlins          #+#    #+#             */
-/*   Updated: 2023/06/05 14:06:56 by btomlins         ###   ########.fr       */
+/*   Created: 2023/08/30 12:39:20 by btomlins          #+#    #+#             */
+/*   Updated: 2023/08/30 12:49:56 by btomlins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ Your function must be declared as follows:
 char	*ft_itoa(int nbr);
 */
 
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-char	*ft_itoa(int nbr)
+char *ft_itoa(int nbr)
 {
-	int n;
-	int len;
-
-	n = nbr;
-	len = 0;
-
+	if(nbr == -2147483648)
+		return("-2147483648\0");
+	int n = nbr;
+	int len = 0;
 	if (nbr <= 0)
+	{
 		len++;
+	}
 	while (n)
 	{
 		n /= 10;
