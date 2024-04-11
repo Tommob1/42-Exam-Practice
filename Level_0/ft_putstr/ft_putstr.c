@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: btomlins <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 13:13:39 by btomlins          #+#    #+#             */
-/*   Updated: 2023/06/05 13:17:05 by btomlins         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 /*
 Assignment name  : ft_putstr
 Expected files   : ft_putstr.c
@@ -25,15 +13,17 @@ Your function must be declared as follows:
 
 void	ft_putstr(char *str);
 */
+
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void ft_putstr(char *str)
 {
-	int i;
-	i = 0;
-	while (str[i] != 0)
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+    int i;
+    i = 0;
+
+    while (str[i] != 0)
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
 }
