@@ -1,40 +1,57 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   alpha_mirror.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: btomlins <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 09:51:09 by btomlins          #+#    #+#             */
-/*   Updated: 2023/04/11 10:06:12 by btomlins         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*
+Assignment name  : alpha_mirror
+Expected files   : alpha_mirror.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program called alpha_mirror that takes a string and displays this string
+after replacing each alphabetical character by the opposite alphabetical
+character, followed by a newline.
+
+'a' becomes 'z', 'Z' becomes 'A'
+'d' becomes 'w', 'M' becomes 'N'
+
+and so on.
+
+Case is not changed.
+
+If the number of arguments is not 1, display only a newline.
+
+Examples:
+
+$>./alpha_mirror "abc"
+zyx
+$>./alpha_mirror "My horse is Amazing." | cat -e
+Nb slihv rh Znzarmt.$
+$>./alpha_mirror | cat -e
+*/
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void putchar(char c)
 {
-	write(1, &c, 1);
+    write(1, &c, 1);
 }
 
-void	alpha_mirror(char *s)
+void alpha_mirror(char *c)
 {
-	while (*s)
-	{
-		if (*s >=97 && *s <= 122)
-			ft_putchar('m' - (*s - 'n'));
-		else if (*s >= 65 && *s <= 90)
-			ft_putchar('M' - (*s - 'N'));
-		else
-			ft_putchar(*s);
-		s++;
-	}
+    while (*c)
+    {
+        if (*c >= 97 && *c <= 122)
+            putchar('m' - (*c - 'n'));
+        else if (*c >= 65 && *c <= 90)
+            putchar('M' - (*c - 'N'));
+        else
+            putchar(*c);
+        c++;
+    }
 }
 
-int	main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	if (ac == 2)
-		alpha_mirror(av[1]);
-	ft_putchar('\n');
-	return (0);
+    if (argc == 2)
+    {
+        alpha_mirror(argv[1]);
+    }
+    putchar('\n');
 }
