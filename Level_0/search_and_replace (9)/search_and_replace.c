@@ -26,7 +26,7 @@ $>./search_and_replace "ZoZ eT Dovid oiME le METol." "o" "a" | cat -e
 ZaZ eT David aiME le METal.$
 $>./search_and_replace "wNcOre Un ExEmPle Pas Facilw a Ecrirw " "w" "e" | cat -e
 eNcOre Un ExEmPle Pas Facile a Ecrire $
- */
+*/
 
 #include <unistd.h>
 #include <stdio.h>
@@ -36,9 +36,9 @@ int main(int argc, char **argv)
     int i;
     i = 0;
 
-    if (argc == 4 && !argv[2][1] & ! argv[3][1])
+    if (argc == 4 && !argv[2][1] & !argv[3][1])
     {
-        while (argv[1][i] != '\0')
+        while(argv[1][i] != '\0')
         {
             if (argv[1][i] == argv[2][0])
             {
@@ -48,6 +48,5 @@ int main(int argc, char **argv)
             i++;
         }
     }
-    write(1,"\n", 1);
-    return (0);
+    write(1, "\n", 1);
 }
